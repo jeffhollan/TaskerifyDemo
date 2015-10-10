@@ -20,5 +20,7 @@ namespace Taskerify.Models
         [ForeignKey("ownerId")]
         public virtual User owner { get; set; }
 
+        public virtual User createdBy { get; set; }
+
     }
 }

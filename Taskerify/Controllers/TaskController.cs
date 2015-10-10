@@ -13,6 +13,7 @@ namespace Taskerify.Controllers
     {
         private DataModel db = new DataModel();
 
+        [HttpPost, Route("api/Task")]
         public async Task<HttpResponseMessage> AddTask(Models.Task task)
         {
             var owner = db.Users.Where(u => u.id == task.ownerId).FirstOrDefault();
@@ -21,6 +22,12 @@ namespace Taskerify.Controllers
             db.Tasks.Add(task);
             await db.SaveChangesAsync();
             return Request.CreateResponse("Task Created");
+        }
+
+        [HttpGet, Route("api/Task")]
+        public async Task<HttpResponseMessage> GetTasks()
+        {
+            return Request.CreateResponse<IList<Models.Task>>(db.Tasks.ToList());
         }
     }
 }

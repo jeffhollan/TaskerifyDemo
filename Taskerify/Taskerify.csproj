@@ -116,7 +116,6 @@
     <Content Include="Web.config" />
     <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
@@ -127,6 +126,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510102108350_InitialCreate.cs" />
+    <Compile Include="Migrations\201510102108350_InitialCreate.Designer.cs">
+      <DependentUpon>201510102108350_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510102145400_changing Task AGain.cs" />
+    <Compile Include="Migrations\201510102145400_changing Task AGain.Designer.cs">
+      <DependentUpon>201510102145400_changing Task AGain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510102148038_removing user task relationship thing.cs" />
+    <Compile Include="Migrations\201510102148038_removing user task relationship thing.Designer.cs">
+      <DependentUpon>201510102148038_removing user task relationship thing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,7 +152,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201510102108350_InitialCreate.resx">
+      <DependentUpon>201510102108350_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510102145400_changing Task AGain.resx">
+      <DependentUpon>201510102145400_changing Task AGain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510102148038_removing user task relationship thing.resx">
+      <DependentUpon>201510102148038_removing user task relationship thing.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
