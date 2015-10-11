@@ -16,7 +16,7 @@ namespace Taskerify.Controllers
         [HttpPost, Route("api/User")]
         public async Task<HttpResponseMessage> AddUser(NewUserModel user)
         {
-            User newUser = new User { id = Guid.NewGuid(), name = user.name, email = user.email, phone = user.phone };
+            User newUser = new User { id = Guid.NewGuid(), name = user.name, email = user.email, phone = user.phone, twitter = user.twitter };
             db.Users.Add(newUser);
             await db.SaveChangesAsync();
             return Request.CreateResponse("User Added");
@@ -34,6 +34,13 @@ namespace Taskerify.Controllers
         public async Task<HttpResponseMessage> GetUser(Guid id)
         {
             return Request.CreateResponse<User>(db.Users.Where(u => u.id == id).FirstOrDefault());
+        }
+
+        [Swashbuckle.Swagger.Annotations.SwaggerResponse(HttpStatusCode.OK, "Requested User", typeof(User))]
+        [HttpGet, Route("api/User/twitter/{handle}")]
+        public async Task<HttpResponseMessage> GetUserByTwitter(string handle)
+        {
+            return Request.CreateResponse<User>(db.Users.Where(u => u.twitter == handle).FirstOrDefault());
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Taskerify.Models
         public string name { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
+        public string twitter { get; set; }
     }
 
     public class NewUserModel
@@ -21,5 +22,6 @@ namespace Taskerify.Models
         public string name { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
+        public string twitter { get; set; }
     }
 }

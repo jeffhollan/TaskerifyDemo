@@ -23,4 +23,11 @@ namespace Taskerify.Models
         public virtual User createdBy { get; set; }
 
     }
+
+    public class NewTaskModel
+    {
+        public Guid createdById { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+    }
 }

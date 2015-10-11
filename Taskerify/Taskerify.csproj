@@ -138,6 +138,10 @@
     <Compile Include="Migrations\201510102148038_removing user task relationship thing.Designer.cs">
       <DependentUpon>201510102148038_removing user task relationship thing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510110222595_adding Twitter.cs" />
+    <Compile Include="Migrations\201510110222595_adding Twitter.Designer.cs">
+      <DependentUpon>201510110222595_adding Twitter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
@@ -161,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510102148038_removing user task relationship thing.resx">
       <DependentUpon>201510102148038_removing user task relationship thing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510110222595_adding Twitter.resx">
+      <DependentUpon>201510110222595_adding Twitter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

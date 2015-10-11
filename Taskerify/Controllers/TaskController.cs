@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Threading.Tasks;
 using System.Threading;
+using Newtonsoft.Json.Linq;
 
 namespace Taskerify.Controllers
 {
@@ -22,6 +23,17 @@ namespace Taskerify.Controllers
             db.Tasks.Add(task);
             await db.SaveChangesAsync();
             return Request.CreateResponse("Task Created");
+        }
+
+        [HttpPost, Route("api/Task/light")]
+        public async Task<HttpResponseMessage> AddTaskLight(Models.NewTaskModel newTask)
+        {
+            var owner = db.Users.Where(u => u.id == newTask.createdById).FirstOrDefault();
+            if (owner == null)
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Owner ID Does not exist. Please check your input and try again");
+            db.Tasks.Add(new Models.Task { taskId = Guid.NewGuid(), createdById = newTask.createdById, ownerId = newTask.createdById, title = newTask.title, description = newTask.description });
+            await db.SaveChangesAsync();
+            return Request.CreateResponse("{ \"created\": true }");
         }
 
         [HttpGet, Route("api/Task")]
