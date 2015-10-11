@@ -50,7 +50,31 @@
       <HintPath>..\packages\Microsoft.Azure.AppService.ApiApps.Service.0.9.64\lib\net45\Microsoft.Azure.AppService.ApiApps.Service.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Azure.Management.Logic, Version=0.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Management.Logic.0.1.0-preview\lib\net45\Microsoft.Azure.Management.Logic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=2.18.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.2.18.206251556\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms, Version=2.18.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.2.18.206251556\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.1.2.0\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.1.0.20\lib\net45\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure.Authentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.Authentication.0.9.1\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -142,6 +166,22 @@
     <Compile Include="Migrations\201510110222595_adding Twitter.Designer.cs">
       <DependentUpon>201510110222595_adding Twitter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510110313500_Adding processed to user.cs" />
+    <Compile Include="Migrations\201510110313500_Adding processed to user.Designer.cs">
+      <DependentUpon>201510110313500_Adding processed to user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510110320130_Adding processedTime.cs" />
+    <Compile Include="Migrations\201510110320130_Adding processedTime.Designer.cs">
+      <DependentUpon>201510110320130_Adding processedTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510110321401_nullable DAteTime.cs" />
+    <Compile Include="Migrations\201510110321401_nullable DAteTime.Designer.cs">
+      <DependentUpon>201510110321401_nullable DAteTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510110421590_making Task items more nullable.cs" />
+    <Compile Include="Migrations\201510110421590_making Task items more nullable.Designer.cs">
+      <DependentUpon>201510110421590_making Task items more nullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
@@ -169,6 +209,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510110222595_adding Twitter.resx">
       <DependentUpon>201510110222595_adding Twitter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510110313500_Adding processed to user.resx">
+      <DependentUpon>201510110313500_Adding processed to user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510110320130_Adding processedTime.resx">
+      <DependentUpon>201510110320130_Adding processedTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510110321401_nullable DAteTime.resx">
+      <DependentUpon>201510110321401_nullable DAteTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510110421590_making Task items more nullable.resx">
+      <DependentUpon>201510110421590_making Task items more nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -22,6 +22,9 @@ namespace Taskerify.Models
 
         public virtual User createdBy { get; set; }
 
+        public int? processed { get; set; }
+        public DateTime? processedTime { get; set; }
+
     }
 
     public class NewTaskModel

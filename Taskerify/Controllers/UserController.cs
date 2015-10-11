@@ -16,7 +16,7 @@ namespace Taskerify.Controllers
         [HttpPost, Route("api/User")]
         public async Task<HttpResponseMessage> AddUser(NewUserModel user)
         {
-            User newUser = new User { id = Guid.NewGuid(), name = user.name, email = user.email, phone = user.phone, twitter = user.twitter };
+            User newUser = new User { id = Guid.NewGuid(), name = user.name, email = user.email, phone = user.phone, twitter = user.twitter, processed = 0 };
             db.Users.Add(newUser);
             await db.SaveChangesAsync();
             return Request.CreateResponse("User Added");

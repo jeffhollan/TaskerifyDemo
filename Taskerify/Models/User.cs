@@ -15,6 +15,8 @@ namespace Taskerify.Models
         public string phone { get; set; }
         public string email { get; set; }
         public string twitter { get; set; }
+        public int? processed { get; set;}
+        public DateTime? processedTime { get; set; }
     }
 
     public class NewUserModel

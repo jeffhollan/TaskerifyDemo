@@ -33,7 +33,7 @@ namespace Taskerify.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Owner ID Does not exist. Please check your input and try again");
             db.Tasks.Add(new Models.Task { taskId = Guid.NewGuid(), createdById = newTask.createdById, ownerId = newTask.createdById, title = newTask.title, description = newTask.description });
             await db.SaveChangesAsync();
-            return Request.CreateResponse("{ \"created\": true }");
+            return Request.CreateResponse(@"{ ""created"": true }");
         }
 
         [HttpGet, Route("api/Task")]
