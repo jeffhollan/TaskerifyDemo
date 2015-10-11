@@ -3,3 +3,5 @@ Resources.resw
 bin/
 obj/
 packages/
+PublishProfiles/
+Properties/PublishProfiles/
