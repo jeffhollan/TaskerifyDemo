@@ -16,14 +16,16 @@ namespace Taskerify.Models
         public string email { get; set; }
         public string twitter { get; set; }
         public int? processed { get; set;}
-        public DateTime? processedTime { get; set; }
+        public bool? registered { get; set; }
     }
 
     public class NewUserModel
     {
+        [Required]
         public string name { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
         public string twitter { get; set; }
+        public bool registered { get; set; }
     }
 }

@@ -3,7 +3,7 @@ namespace Taskerify.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -17,16 +17,14 @@ namespace Taskerify.Migrations
                         title = c.String(),
                         description = c.String(),
                         dueDate = c.DateTimeOffset(nullable: false, precision: 7),
-                        User_id = c.Guid(),
-                        User_id1 = c.Guid(),
+                        processed = c.Int(),
+                        processedTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.taskId)
-                .ForeignKey("dbo.Users", t => t.User_id)
-                .ForeignKey("dbo.Users", t => t.User_id1)
+                .ForeignKey("dbo.Users", t => t.createdById, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.ownerId, cascadeDelete: true)
                 .Index(t => t.ownerId)
-                .Index(t => t.User_id)
-                .Index(t => t.User_id1);
+                .Index(t => t.createdById);
             
             CreateTable(
                 "dbo.Users",
@@ -36,23 +34,19 @@ namespace Taskerify.Migrations
                         name = c.String(),
                         phone = c.String(),
                         email = c.String(),
-                        User_id = c.Guid(),
+                        twitter = c.String(),
+                        processed = c.Int(),
+                        registered = c.Boolean(),
                     })
-                .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.Users", t => t.User_id)
-                .Index(t => t.User_id);
+                .PrimaryKey(t => t.id);
             
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Tasks", "ownerId", "dbo.Users");
-            DropForeignKey("dbo.Tasks", "User_id1", "dbo.Users");
-            DropForeignKey("dbo.Users", "User_id", "dbo.Users");
-            DropForeignKey("dbo.Tasks", "User_id", "dbo.Users");
-            DropIndex("dbo.Users", new[] { "User_id" });
-            DropIndex("dbo.Tasks", new[] { "User_id1" });
-            DropIndex("dbo.Tasks", new[] { "User_id" });
+            DropForeignKey("dbo.Tasks", "createdById", "dbo.Users");
+            DropIndex("dbo.Tasks", new[] { "createdById" });
             DropIndex("dbo.Tasks", new[] { "ownerId" });
             DropTable("dbo.Users");
             DropTable("dbo.Tasks");

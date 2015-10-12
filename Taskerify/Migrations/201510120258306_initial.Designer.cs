@@ -7,13 +7,13 @@ namespace Taskerify.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddingprocessedTime : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddingprocessedTime));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201510110320130_Adding processedTime"; }
+            get { return "201510120258306_initial"; }
         }
         
         string IMigrationMetadata.Source

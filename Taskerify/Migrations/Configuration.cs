@@ -10,7 +10,6 @@ namespace Taskerify.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Taskerify.DataModel";
         }
 
         protected override void Seed(Taskerify.DataModel context)

@@ -15,7 +15,7 @@ namespace Taskerify.Models
         public Guid createdById { get; set; }
         public string title { get; set; }
         public string description { get; set; }
-        public DateTimeOffset dueDate { get; set; }
+        public DateTimeOffset? dueDate { get; set; }
 
         [ForeignKey("ownerId")]
         public virtual User owner { get; set; }
