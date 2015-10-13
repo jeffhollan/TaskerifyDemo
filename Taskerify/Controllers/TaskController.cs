@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Threading.Tasks;
 using System.Threading;
 using Newtonsoft.Json.Linq;
+using TRex.Metadata;
 
 namespace Taskerify.Controllers
 {
@@ -14,6 +15,7 @@ namespace Taskerify.Controllers
     {
         private DataModel db = new DataModel();
 
+        [Metadata("Add Task (advanced)")]
         [HttpPost, Route("api/Task")]
         public async Task<HttpResponseMessage> AddTask(Models.Task task)
         {
@@ -25,6 +27,7 @@ namespace Taskerify.Controllers
             return Request.CreateResponse("Task Created");
         }
 
+        [Metadata("Add Task (basic)")]
         [HttpPost, Route("api/Task/light")]
         public async Task<HttpResponseMessage> AddTaskLight(Models.NewTaskModel newTask)
         {
@@ -36,6 +39,7 @@ namespace Taskerify.Controllers
             return Request.CreateResponse(@"{ ""created"": true }");
         }
 
+        [Metadata("Get All Tasks")]
         [HttpGet, Route("api/Task")]
         public async Task<HttpResponseMessage> GetTasks()
         {

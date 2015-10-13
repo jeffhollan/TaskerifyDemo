@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Taskerify.Models;
 using System.Threading.Tasks;
+using TRex.Metadata;
 
 namespace Taskerify.Controllers
 {
@@ -13,6 +14,7 @@ namespace Taskerify.Controllers
     {
         private DataModel db = new DataModel();
 
+        [Metadata("Add User")]
         [HttpPost, Route("api/User")]
         public async Task<HttpResponseMessage> AddUser(NewUserModel user)
         {
@@ -22,6 +24,7 @@ namespace Taskerify.Controllers
             return Request.CreateResponse("User Added");
         }
 
+        [Metadata("Get All Users")]
         [Swashbuckle.Swagger.Annotations.SwaggerResponse(HttpStatusCode.OK, "Array of users", typeof(IList<User>))]
         [HttpGet, Route("api/User")]
         public async Task<HttpResponseMessage> GetUsers()
@@ -29,6 +32,8 @@ namespace Taskerify.Controllers
             return Request.CreateResponse<IList<User>>(db.Users.ToList());
         }
 
+        
+        [Metadata("Get User by ID")]
         [Swashbuckle.Swagger.Annotations.SwaggerResponse(HttpStatusCode.OK, "Requested User", typeof(User))]
         [HttpGet, Route("api/User/{id}")]
         public async Task<HttpResponseMessage> GetUser(Guid id)
@@ -36,6 +41,7 @@ namespace Taskerify.Controllers
             return Request.CreateResponse<User>(db.Users.Where(u => u.id == id).FirstOrDefault());
         }
 
+        [Metadata("Get User by Twitter Handle")]
         [Swashbuckle.Swagger.Annotations.SwaggerResponse(HttpStatusCode.OK, "Requested User", typeof(User))]
         [HttpGet, Route("api/User/twitter/{handle}")]
         public async Task<HttpResponseMessage> GetUserByTwitter(string handle)

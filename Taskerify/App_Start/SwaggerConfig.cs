@@ -6,6 +6,7 @@ using Swashbuckle.Application;
 using Swashbuckle.Swagger;
 using WebActivatorEx;
 using Taskerify;
+using TRex.Metadata;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -37,6 +38,7 @@ namespace Taskerify
                         // additional fields by chaining methods off SingleApiVersion.
                         //
                         c.SingleApiVersion("v1", "Taskerify");
+                        c.ReleaseTheTRex();
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
